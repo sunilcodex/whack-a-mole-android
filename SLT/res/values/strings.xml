@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="hello">Hello World, slt.lmb!</string>
-    <string name="app_name">Schiaccia la talpa</string>
+	<string name="hello">Hello World, slt.lmb!</string>
+	<string name="app_name">Schiaccia la talpa</string>
+	<string name="Score">Score: </string>
+	<string name="Life">Life: </string>
 </resources>
