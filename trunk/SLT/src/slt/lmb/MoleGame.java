@@ -34,7 +34,7 @@ public class MoleGame extends Thread {
 			newPosition=(int) (Math.random()*(upperBound+1));
 			//setto la nuova posizione
 			nextStep(newPosition);
-
+			
 			//attendo tot tempo
 			try {
 				sleep(1000);
@@ -69,6 +69,14 @@ public class MoleGame extends Thread {
 		if (state.equals(GameState.RUNNING.name()))	this.gstate = GameState.RUNNING;
 		else this.gstate = GameState.STOPPED;
 			
+	}
+	
+	/**
+	 * Termina il thread in maniera pulita.
+	 * */
+	public synchronized void stopThread() {
+		this.gstate = GameState.STOPPED;
+		
 	}
 	
 	

@@ -4,12 +4,12 @@
 	android:background="@drawable/sfondo" android:layout_width="fill_parent"
 	android:layout_height="fill_parent" android:orientation="vertical">
 
-	<TextView android:id="@+id/textview" android:layout_width="50px"
+	<TextView android:id="@+id/Score" android:layout_width="70px"
 		android:layout_height="50px" android:text="@string/Score"
-		android:textColor="#000" android:textSize="15px" android:textStyle="bold">
+		android:textColor="#000" android:textStyle="bold" android:textSize="15px">
 
 	</TextView>
-	<TextView android:id="@+id/textview" android:layout_width="50px"
+	<TextView android:id="@+id/Life" android:layout_width="70px"
 		android:layout_height="50px" android:text="@string/Life"
 		android:textColor="#000" android:textSize="15px" android:textStyle="bold">
 

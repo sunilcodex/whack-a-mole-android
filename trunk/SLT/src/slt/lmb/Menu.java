@@ -22,6 +22,7 @@ public class Menu extends Activity {
         	public void onClick(View v) {
         		Intent StartGameIntent = new Intent(Menu.this,Slt.class);
         		startActivity(StartGameIntent);
+        	
         	}
         });
         
