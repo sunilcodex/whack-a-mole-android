@@ -5,11 +5,13 @@ package slt.lmb;
 
 public class Mole {
 	
-    Integer talpa;
+    private Integer talpa;
+    private Integer farfalla;
 	
 	public Mole(){
 		
 		talpa=R.drawable.talpa;
+		farfalla=R.drawable.farfalla;
 	}
 
 	
@@ -18,6 +20,11 @@ public class Mole {
 	public Integer getTalpa(){
 		
 		return talpa;
+	}
+	
+	public Integer getFarfalla(){
+		
+		return farfalla;
 	}
 
 }

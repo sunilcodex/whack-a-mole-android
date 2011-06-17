@@ -7,11 +7,23 @@ import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
 
-public class GraphicsMole extends BaseAdapter {
+public class GraphicsMole extends BaseAdapter implements View.OnClickListener {
 	private Context mContext;
 
 	public GraphicsMole(Context c) {
 		mContext = c;
+	}
+
+	@Override
+	public boolean areAllItemsEnabled() {
+
+		return super.areAllItemsEnabled();
+	}
+
+	@Override
+	public boolean isEnabled(int position) {
+
+		return super.isEnabled(position);
 	}
 
 	public int getCount() {
@@ -31,8 +43,8 @@ public class GraphicsMole extends BaseAdapter {
 		return item;
 	}
 
-	public void  setItem(Integer index,Integer item) {
-		mThumbIds[index]=item;
+	public void setItem(Integer index, Integer item) {
+		mThumbIds[index] = item;
 		System.err.println(item);
 	}
 
@@ -67,18 +79,22 @@ public class GraphicsMole extends BaseAdapter {
 	}
 
 	// references to our images
-	private  Integer[] mThumbIds = { 
-		       R.drawable.buca, R.drawable.buca,
-	            R.drawable.buca, R.drawable.buca,
-	            R.drawable.buca, R.drawable.buca,
-	            R.drawable.buca, R.drawable.buca,
-	            R.drawable.buca
-			
+	private Integer[] mThumbIds = { R.drawable.buca, R.drawable.buca,
+			R.drawable.buca, R.drawable.buca, R.drawable.buca, R.drawable.buca,
+			R.drawable.buca, R.drawable.buca, R.drawable.buca
+
 	};
 
 	public Integer[] getmThumbIds() {
 
 		return mThumbIds;
+	}
+
+	@Override
+	public void onClick(View v) {
+		
+		this.notifyDataSetChanged();
+
 	}
 
 }

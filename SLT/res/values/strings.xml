@@ -2,6 +2,6 @@
 <resources>
 	<string name="hello">Hello World, slt.lmb!</string>
 	<string name="app_name">Schiaccia la talpa</string>
-	<string name="Score">Score: </string>
-	<string name="Life">Life: </string>
+	<string name="Score">Score: 0 </string>
+	<string name="Life">Life: 3 </string>
 </resources>
