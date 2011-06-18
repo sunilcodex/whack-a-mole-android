@@ -22,6 +22,7 @@ public class Menu extends Activity {
         	public void onClick(View v) {
         		Intent StartGameIntent = new Intent(Menu.this,Slt.class);
         		startActivity(StartGameIntent);
+        		finish();
         	
         	}
         });
@@ -44,5 +45,10 @@ public class Menu extends Activity {
         		startActivity(CreditsIntent);
         	}
         });
+    }
+    
+    public Activity getActivity(){
+    	
+    	return this.getActivity();
     }
 }
