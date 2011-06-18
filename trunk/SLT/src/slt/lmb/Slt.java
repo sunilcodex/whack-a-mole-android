@@ -17,10 +17,12 @@ public class Slt extends Activity {
 	private int currentMolePos = -1;
 	private int scoreCurr = 0;
 	private int lifeCurr = 3;
-	private Handler step = new ChangeImage();
-	private Handler Update = new Handler();
-	private MoleGame mg = new MoleGame(step);
+	private Handler step;
+	private Handler Update;
+	private MoleGame mg;
 	private boolean isMole = true;
+
+	private Mole mole = new Mole();
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -29,9 +31,10 @@ public class Slt extends Activity {
 		final TextView scoreTview = (TextView) findViewById(R.id.Score);
 		final TextView lifeTview = (TextView) findViewById(R.id.Life);
 		final GridView gw = (GridView) findViewById(R.id.gridview);
+		step = new ChangeImage();
+		Update = new Handler();
 		im = new GraphicsMole(this);
 		gw.setAdapter(im);
-	
 
 		// ----------------------------
 
@@ -43,7 +46,7 @@ public class Slt extends Activity {
 					Update.post(new Runnable() {
 
 						@Override
-						public void run() { 
+						public void run() {
 
 							if (isMole == true) {
 								scoreCurr = scoreCurr + 1;
@@ -55,9 +58,12 @@ public class Slt extends Activity {
 								lifeTview.refreshDrawableState();
 								if (lifeCurr == 0) {
 									mg.stopThread();
+									
 									Intent gameOverIntent = new Intent(
 											Slt.this, GameOver.class);
 									startActivity(gameOverIntent);
+									finish();
+																	
 								}
 							}
 
@@ -66,15 +72,19 @@ public class Slt extends Activity {
 				}
 			}
 		});
-
+		mg = new MoleGame(step);
 		mg.start();
 
+	}
+	
+	public Activity getActivity(){
+		
+		return this.getActivity();
 	}
 
 	// ---------------------------
 	private class ChangeImage extends Handler {
 
-		Mole mole = new Mole();
 		Hole hole = new Hole();
 		private int oldPosition = -1;
 		private final double prob = 0.7;
@@ -99,5 +109,6 @@ public class Slt extends Activity {
 			im.notifyDataSetChanged();
 		}
 	}
+	
 
 }

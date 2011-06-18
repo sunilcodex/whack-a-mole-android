@@ -4,4 +4,6 @@
 	<string name="app_name">Schiaccia la talpa</string>
 	<string name="Score">Score: 0 </string>
 	<string name="Life">Life: 3 </string>
+	<string name="restart">restart</string>
+	<string name="quit">quit</string>
 </resources>
