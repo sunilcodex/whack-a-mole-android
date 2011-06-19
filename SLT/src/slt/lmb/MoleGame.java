@@ -1,6 +1,5 @@
 package slt.lmb;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -11,7 +10,7 @@ public class MoleGame extends Thread {
 	final static public int UPPERBOUND = 8;
 
 	private int upperBound;
-	
+	private int timeWait;
 	private Handler handler;
 
 	public enum GameState{RUNNING, STOPPED};
@@ -23,6 +22,7 @@ public class MoleGame extends Thread {
 		this.upperBound = UPPERBOUND;
 		gstate = GameState.RUNNING;
 		this.handler=handler;
+		this.timeWait=1000;
 	}
 
 	@Override
@@ -38,7 +38,7 @@ public class MoleGame extends Thread {
 			
 			//attendo tot tempo
 			try {
-				sleep(1000);
+				sleep(timeWait);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -80,9 +80,9 @@ public class MoleGame extends Thread {
 		
 	}
 	
-	public Activity getActivity(){
+	public void setTimeToWait(int timeWait){
+		this.timeWait=timeWait;
 		
-		return this.getActivity();
 	}
 	
 
