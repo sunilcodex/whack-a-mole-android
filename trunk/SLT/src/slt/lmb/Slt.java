@@ -21,8 +21,8 @@ public class Slt extends Activity {
 	private Handler Update;
 	private MoleGame mg;
 	private boolean isMole = true;
-
 	private Mole mole = new Mole();
+	private double prob=0.7;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -52,6 +52,15 @@ public class Slt extends Activity {
 								scoreCurr = scoreCurr + 1;
 								scoreTview.setText("Score: " + scoreCurr);
 								scoreTview.refreshDrawableState();
+								if(scoreCurr==20){
+									setProbability(0.60);
+									mg.setTimeToWait(700);
+									
+								}
+								else if(scoreCurr==50){
+									setProbability(0.45);
+									mg.setTimeToWait(500);
+								}
 							} else {
 								lifeCurr = lifeCurr - 1;
 								lifeTview.setText("Life: " + lifeCurr);
@@ -84,14 +93,16 @@ public class Slt extends Activity {
 
 	// ---------------------------
 	private class ChangeImage extends Handler {
-
+		
 		Hole hole = new Hole();
 		private int oldPosition = -1;
-		private final double prob = 0.7;
+		
+		
 
 		@Override
 		public void handleMessage(Message msg) {
 			Bundle bundle = msg.getData();
+			
 			currentMolePos = bundle.getInt("newPosition");
 			if (Math.random() < prob) {
 				im.setItem(currentMolePos, mole.getTalpa());
@@ -108,6 +119,13 @@ public class Slt extends Activity {
 			oldPosition = currentMolePos;
 			im.notifyDataSetChanged();
 		}
+
+	
+		
+	}
+	
+	public void setProbability(double prob){
+		this.prob=prob;
 	}
 	
 
